@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<h3>LOGIN</h3>
+
+<br>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <div class="card mx-auto" style="width: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title">Ingrese sus Credenciales</h5>
+        {{ form | crispy }}
+        <a href={% url 'home' %} class="card-link">Inicio</a>
+        <a href={% url 'register' %} class="card-link">Registrarse</a>
+        <button class="btn btn-sm btn-primary float-end" type="submit">Iniciar Sesión</button>
+      </div>
+    </div>
+</form>
+
+{% endblock %}
